@@ -2,7 +2,7 @@
 const {
   Model
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => 
+module.exports = (sequelize, DataTypes) => {
   class Band extends Model {
     /**
      * Helper method for defining associations.
@@ -41,3 +41,5 @@ module.exports = (sequelize, DataTypes) =>
     tableName: 'bands',
     timestamps: false
   });
+  return Band;
+};
