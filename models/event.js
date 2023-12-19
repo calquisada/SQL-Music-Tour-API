@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class event extends Model {
+  class Event extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,15 +13,33 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  event.init({
-    event_id: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    date: DataTypes.DATE,
-    start_time: DataTypes.DATE,
-    end_time: DataTypes.DATE
+  Event.init({
+    event_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    genre: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    available_start_time: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    end_time: {
+        type: DataTypes.DATE,
+        allowNull: false
+    }
   }, {
     sequelize,
-    modelName: 'event',
+    modelName: 'Event',
+    tableName: 'events',
+    timestamps: false
   });
-  return event;
+  return Event;
 };
