@@ -1,7 +1,7 @@
 'use strict'
 const {
   Model
-} = require('sequelize');
+} = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class StageEvent extends Model {
     /**
@@ -9,9 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({}) {
+    static associate(models) {
+      // define association here
     }
-  }
+  };
   StageEvent.init({
     stage_events_id: {
       type: DataTypes.INTEGER,
@@ -30,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'StageEvent',
     tableName: 'stage_events',
-    timestamps: false
+    timestamps: false,
   })
   return StageEvent
 }
